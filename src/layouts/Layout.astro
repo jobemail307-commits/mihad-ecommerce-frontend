@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets"
 import "@/styles/global.css"
+import Navbar from "@/components/Navbar.astro"
 ---
 <!doctype html>
 <html lang="en">
@@ -16,6 +17,7 @@ import "@/styles/global.css"
 		<Font cssVariable="--font-mono" />
 	</head>
 	<body class="bg-background text-foreground font-sans">
+		<Navbar />
 		<slot />
 	</body>
 </html>

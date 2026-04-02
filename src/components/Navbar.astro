@@ -1,0 +1,21 @@
+---
+import {Menu, ShoppingBag, User} from '@lucide/astro'
+---
+<div class="bg-black/57 text-primary-foreground backdrop-blur-md fixed inset-x-0 z-1">
+  <nav class="grid w-full wrapper grid-cols-[1fr_min-content_1fr] py-10 px-8 z-2">
+    <div>
+      <Menu />
+    </div>
+    <i>
+      Logo
+    </i>
+    <div class="flex flex-row-reverse gap-3">
+      <a href="/cart">
+        <ShoppingBag />
+      </a>
+      <a href="/login">
+        <User />
+      </a>
+    </div>
+  </nav>
+</div>
