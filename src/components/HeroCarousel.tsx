@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
 function HeroCarousel({ images }: { images: ComponentProps<"img">[] }) {
   return (
-    <Carousel>
+    <Carousel opts={{ loop: true }}>
       <CarouselContent className="w-full gap-0">
         {images.map((image, index) => (
           <CarouselItem key={index}>
