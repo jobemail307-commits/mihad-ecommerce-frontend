@@ -27,6 +27,7 @@ function HeroCarousel({
     <>
       <Carousel
         opts={{
+          duration: 15,
           watchDrag: true,
           breakpoints: {
             "(min-width: 1024px)": { watchDrag: false },
