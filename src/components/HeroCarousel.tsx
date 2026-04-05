@@ -8,6 +8,7 @@ import {
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { socials } from "@/lib/constants";
+import AutoPlay from "embla-carousel-autoplay";
 
 function HeroCarousel({
   panels,
@@ -24,7 +25,11 @@ function HeroCarousel({
   }, [api]);
   return (
     <>
-      <Carousel opts={{ watchDrag: false }} setApi={setApi}>
+      <Carousel
+        opts={{ watchDrag: false }}
+        setApi={setApi}
+        plugins={[AutoPlay({ delay: 3000 })]}
+      >
         <CarouselContent className="w-full gap-0">
           {panels.map((panel, index) => (
             <CarouselItem key={index}>
