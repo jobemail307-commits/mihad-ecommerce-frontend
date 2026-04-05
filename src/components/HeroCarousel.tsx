@@ -6,7 +6,7 @@ import {
   CarouselItem,
 } from "./ui/carousel";
 import { Button } from "./ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Watch } from "lucide-react";
 import { socials } from "@/lib/constants";
 import AutoPlay from "embla-carousel-autoplay";
 
@@ -26,7 +26,12 @@ function HeroCarousel({
   return (
     <>
       <Carousel
-        opts={{ watchDrag: false }}
+        opts={{
+          watchDrag: true,
+          breakpoints: {
+            "(min-width: 1024px)": { watchDrag: false },
+          },
+        }}
         setApi={setApi}
         plugins={[AutoPlay({ delay: 3000 })]}
       >
