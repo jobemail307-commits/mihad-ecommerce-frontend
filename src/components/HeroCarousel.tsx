@@ -6,15 +6,19 @@ import {
   CarouselItem,
 } from "./ui/carousel";
 import { Button } from "./ui/button";
-import { ChevronLeft, ChevronRight, Watch } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { socials } from "@/lib/constants";
 import AutoPlay from "embla-carousel-autoplay";
+import type { GetImageResult } from "astro";
 
 function HeroCarousel({
   panels,
 }: {
   panels: {
-    image: ComponentProps<"img">;
+    image: {
+      imageResult: GetImageResult;
+      alt: string;
+    };
     link: { name: string; href: string };
   }[];
 }) {
@@ -37,7 +41,7 @@ function HeroCarousel({
         plugins={[AutoPlay({ delay: 3000 })]}
       >
         <CarouselContent className="w-full gap-0">
-          {panels.map((panel, index) => (
+          {panels.map(({ link, image }, index) => (
             <CarouselItem key={index}>
               <div className="relative">
                 <div className="text-primary-foreground absolute inset-0">
@@ -55,11 +59,16 @@ function HeroCarousel({
                       ))}
                     </ul>
                     <div className="bg-primary rounded-full px-8 py-3">
-                      <a href={panel.link.href}>Buy {panel.link.name}</a>
+                      <a href={link.href}>Buy {link.name}</a>
                     </div>
                   </div>
                 </div>
-                <img {...panel.image} className="w-full"></img>
+                <img
+                  src={image.imageResult.src}
+                  alt={image.alt}
+                  {...image.imageResult.attributes}
+                  className="w-full"
+                ></img>
               </div>
             </CarouselItem>
           ))}

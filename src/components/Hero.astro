@@ -1,29 +1,52 @@
 ---
-import { links } from "@/lib/constants";
 import HeroCarousel from "./HeroCarousel";
+import { getImage } from "astro:assets";
 
-interface Image {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
+import MainImage from "@/assets/hero_main.jpeg";
+import type { GetImageResult } from "astro";
+
+interface Panel {
+  image: {
+    src: ImageMetadata;
+    alt: string;
+  };
+  link: {
+    href: string;
+    name: string;
+  };
 }
-const mockWidth = 300;
-const mockHeight = 550;
-const mockImages = new Array(5).fill("").map((_) => {
-  return `https://picsum.photos/seed/${Math.floor(Math.random() * 1000)}/${mockWidth}/${mockHeight}`;
-});
-const images: Image[] = mockImages.map((image) => ({
-  src: image,
-  alt: image,
-  width: mockWidth,
-  height: mockHeight,
-}));
 
-const panels = images.map((image, index) => ({
-  image: image,
-  link: links[index],
-}));
+const panels: Panel[] = [
+  {
+    image: {
+      src: MainImage,
+      alt: "Main",
+    },
+    link: {
+      href: "/",
+      name: "Home",
+    },
+  },
+];
+
+const optimizedPanels: {
+  image: {
+    imageResult: GetImageResult;
+    alt: string;
+  };
+  link: { name: string; href: string };
+}[] = [];
+
+panels.forEach(async ({ image, link }) => {
+  const result = {
+    link,
+    image: {
+      alt: image.alt,
+      imageResult: await getImage({ src: image.src }),
+    },
+  };
+  optimizedPanels.push(result);
+});
 ---
 
-<HeroCarousel client:load panels={panels} />
+<HeroCarousel client:load panels={optimizedPanels} />
