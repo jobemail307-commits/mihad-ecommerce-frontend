@@ -1,0 +1,21 @@
+---
+import Image from "@/components/ImageSectionImage";
+import { getImage } from "astro:assets";
+
+interface Props {
+  collection: {
+    name: string;
+    href: string;
+  };
+  image: {
+    src: ImageMetadata;
+    alt: string;
+  };
+}
+const { collection, image } = Astro.props;
+const imageResult = await getImage({ src: image.src });
+---
+
+<div class="h-svh relative" style={"clip-path: inset(0)"}>
+  <Image imageResult={imageResult} alt={image.alt} client:load />
+</div>
