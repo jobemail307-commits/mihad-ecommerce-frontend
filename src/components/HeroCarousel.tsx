@@ -46,19 +46,22 @@ function HeroCarousel({
               <div className="relative">
                 <div className="text-primary-foreground absolute inset-0">
                   <div className="font-heading flex h-screen flex-col items-center justify-center gap-4 sm:h-full">
-                    <h2 className="bg-primary rounded-4xl px-6 py-2 text-4xl">
+                    <h2 className="bg-primary/57 rounded-4xl px-6 py-2 text-4xl backdrop-blur-xl">
                       Follow Mihad
                     </h2>
                     <ul className="flex gap-5 pb-10">
                       {socials.map((social, index) => (
-                        <li key={index} className="bg-primary rounded-full p-3">
+                        <li
+                          key={index}
+                          className="bg-primary/70 rounded-full p-3 backdrop-blur-xl"
+                        >
                           <a href={social.link}>
                             <social.icon />
                           </a>
                         </li>
                       ))}
                     </ul>
-                    <div className="bg-primary rounded-full px-8 py-3">
+                    <div className="bg-primary/57 rounded-full px-8 py-3 backdrop-blur-xl">
                       <a href={link.href}>Buy {link.name}</a>
                     </div>
                   </div>
