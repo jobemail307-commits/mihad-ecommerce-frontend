@@ -42,7 +42,7 @@ panels.forEach(async ({ image, link }) => {
     link,
     image: {
       alt: image.alt,
-      imageResult: await getImage({ src: image.src }),
+      imageResult: await getImage({ src: image.src, priority: true }),
     },
   };
   optimizedPanels.push(result);
