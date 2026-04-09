@@ -1,6 +1,7 @@
 ---
 import Image from "@/components/ImageSectionImage";
 import { getImage } from "astro:assets";
+import { Button } from "./ui/button";
 
 interface Props {
   collection: {
@@ -18,4 +19,16 @@ const imageResult = await getImage({ src: image.src });
 
 <div class="h-svh relative" style={"clip-path: inset(0)"}>
   <Image imageResult={imageResult} alt={image.alt} client:load />
+  <div class="absolute inset-0 flex justify-center items-center flex-col gap-5">
+    <div
+      class="bg-primary/45 text-primary-foreground px-4 py-3 text-3xl font-heading rounded-4xl"
+    >
+      <a href={collection.href} class="underline">{collection.name}</a>
+    </div>
+    <a href={collection.href}>
+      <div class="bg-primary/45 py-3 px-6 text-primary-foreground rounded-full">
+        Shop now
+      </div>
+    </a>
+  </div>
 </div>
