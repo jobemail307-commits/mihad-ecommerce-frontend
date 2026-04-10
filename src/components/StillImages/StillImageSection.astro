@@ -2,6 +2,7 @@
 import Image from "@/components/StillImages/ImageSectionImage";
 import { getImage } from "astro:assets";
 import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   collection: {
@@ -39,19 +40,21 @@ const imageResult = await getImage({ src: image.src });
       }}
       className="flex justify-center items-center flex-col gap-5"
     >
-      <div
-        class="bg-primary/45 text-primary-foreground px-4 py-3 text-3xl font-heading rounded-4xl soft-ring"
-      >
-        <a href={collection.href} class="underline decoration-1"
-          >{collection.name}</a
-        >
-      </div>
       <a href={collection.href}>
-        <div
-          class="bg-primary/45 py-3 px-6 text-primary-foreground rounded-full soft-ring"
+        <Button
+          className="bg-primary/45 text-primary-foreground px-4 py-7 text-3xl font-heading rounded-4xl soft-ring group"
+        >
+          <span class="underline decoration-1 group-hover:decoration-2"
+            >{collection.name}</span
+          >
+        </Button>
+      </a>
+      <a href={collection.href}>
+        <Button
+          className="bg-primary/45 py-5 px-6 text-primary-foreground rounded-full soft-ring"
         >
           Shop now
-        </div>
+        </Button>
       </a>
     </motion.div>
   </div>

@@ -51,18 +51,24 @@ function HeroCarousel({
                     </h2>
                     <ul className="flex gap-5 pb-10">
                       {socials.map((social, index) => (
-                        <li
-                          key={index}
-                          className="bg-primary/70 soft-ring rounded-full p-3 backdrop-blur-xl"
-                        >
+                        <li key={index}>
                           <a href={social.link}>
-                            <social.icon />
+                            <Button
+                              className="bg-primary/70 soft-ring rounded-full p-3 backdrop-blur-xl"
+                              size={"icon-lg"}
+                            >
+                              <social.icon />
+                            </Button>
                           </a>
                         </li>
                       ))}
                     </ul>
-                    <div className="bg-primary/57 soft-ring rounded-full px-8 py-3 backdrop-blur-xl">
-                      <a href={link.href}>Buy {link.name}</a>
+                    <div>
+                      <a href={link.href}>
+                        <Button className="bg-primary/57 soft-ring rounded-full px-8 py-5 backdrop-blur-xl">
+                          Buy {link.name}
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
