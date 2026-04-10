@@ -1,11 +1,11 @@
-import { useEffect, useState, type ComponentProps } from "react";
+import { useEffect, useState } from "react";
 import {
   type CarouselApi,
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "./ui/carousel";
-import { Button } from "./ui/button";
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { socials } from "@/lib/constants";
 import AutoPlay from "embla-carousel-autoplay";
