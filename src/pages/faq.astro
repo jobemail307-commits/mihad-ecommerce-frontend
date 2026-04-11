@@ -1,5 +1,39 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Section from "@/components/Section.astro";
 ---
 
-<Layout />
+<Layout>
+  <Header title="Frequently asked questions" />
+  <Section title="What is Mehad?">
+    <p>
+      Mehad is an Egyptian fashion brand specializing in elegant, modest women's
+      clothing. We focus on refined design, precise tailoring, and high-quality
+      fabrics, creating timeless pieces that combine comfort, style, and
+      longevity.
+    </p>
+  </Section>
+  <Section title="Is Mehad an Egyptian brand?">
+    <p>
+      Yes. Mehad designs and produces its collections entirely in Egypt. Every
+      piece is developed locally with a deep understanding of the lifestyle and
+      expectations of women who value quality and thoughtful design.
+    </p>
+  </Section>
+  <Section title="Who does Mehad design for?">
+    <p>
+      Mehad collections are designed for women who seek elegance and confidence.
+      Our core audience includes women who prefer sophisticated, well-crafted
+      styles over fast-fashion trends.
+    </p>
+  </Section>
+  <Section title="How can I pay for my order?" separator={false}>
+    <p>
+      All orders are fulfilled using Cash on Delivery (COD).
+      <br />
+      Orders are placed through the website and payment is collected in cash by the
+      courier upon delivery.
+    </p>
+  </Section>
+</Layout>
