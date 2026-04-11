@@ -1,0 +1,25 @@
+---
+import { Separator } from "@/components/ui/separator";
+
+interface Props {
+  title: string;
+  separator?: boolean;
+}
+const { title, separator = true } = Astro.props;
+---
+
+<div class="wrapper text-wrapper">
+  <h2 class="text-3xl font-heading pb-5">
+    {title}
+  </h2>
+  <div
+    class="text-xl font-light tracking-wide text-muted-foreground leading-normal flex flex-col gap-4 pb-5"
+  >
+    <slot />
+  </div>
+  {separator && (
+    <div class="pb-15"></div>
+    <Separator />
+    <div class="pb-20"></div>
+  )}
+</div>
