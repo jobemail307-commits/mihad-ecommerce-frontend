@@ -3,11 +3,12 @@ import { ShoppingBag, User } from "@lucide/astro";
 import MenuButton from "@/components/Navbar/MenuButton";
 import Wrapper from "@/components/Navbar/NavbarWrapper";
 import { links } from "@/lib/constants";
+import Logo from "@/components/Logo.astro";
 ---
 
 <Wrapper client:load>
   <nav
-    class="grid w-full wrapper grid-cols-[1fr_min-content_1fr] py-6 px-8 z-2 items-center"
+    class="grid w-full wrapper grid-cols-[1fr_1fr_1fr] py-6 px-8 z-2 items-center"
   >
     <div>
       <ul class="hidden lg:flex gap-3 text-sm items-center">
@@ -25,8 +26,8 @@ import { links } from "@/lib/constants";
     </div>
     <a
       href="/"
-      class="font-heading group-data-[top=true]:text-4xl text-2xl transition-all duration-500"
-      >Logo</a
+      class="font-heading group-data-[top=true]:text-4xl text-2xl transition-all duration-50 flex justify-center"
+      ><Logo /></a
     >
     <div class="flex flex-row-reverse gap-3">
       <a href="/cart" aria-label="Shopping cart">
