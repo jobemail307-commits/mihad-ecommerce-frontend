@@ -10,7 +10,10 @@ import Logo from "@/components/Logo.astro";
   <nav
     class="grid w-full wrapper grid-cols-[1fr_min-content_1fr] py-6 px-8 z-2 items-center"
   >
-    <div>
+    <div class="flex items-center gap-4">
+      <div class="grid items-center">
+        <MenuButton client:load />
+      </div>
       <ul class="hidden lg:flex gap-3 text-sm items-center">
         {
           links.map((link) => (
@@ -20,9 +23,6 @@ import Logo from "@/components/Logo.astro";
           ))
         }
       </ul>
-      <div class="lg:hidden">
-        <MenuButton client:load />
-      </div>
     </div>
     <a
       href="/"
