@@ -6,13 +6,21 @@ import {Button} from "@/components/ui/button"
 
 <div class="wrapper">
     <form>
-        <FieldGroup>
+        <FieldGroup> 
+        <Field>
+            <FieldLabel>Name</FieldLabel>
+            <Input />
+        </Field>
         <Field>
             <FieldLabel>Username</FieldLabel>
             <Input />
         </Field>
         <Field>
             <FieldLabel>Password</FieldLabel>
+            <Input type="password"/>
+        </Field>
+        <Field>
+            <FieldLabel>Confirm password</FieldLabel>
             <Input type="password"/>
         </Field>
         <Button type="submit">Submit</Button>
