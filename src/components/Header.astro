@@ -1,11 +1,14 @@
 ---
 interface Props {
   title: string;
+  textWrap?: boolean;
 }
-const { title } = Astro.props;
+const { title, textWrap = true } = Astro.props;
 ---
 
-<header class="grid items-center pt-40 pb-25 wrapper text-wrapper">
+<header
+  class={`grid items-center pt-40 pb-25 wrapper ${textWrap && "text-wrapper"}`}
+>
   <h1 class="text-5xl font-heading font-medium">
     {title}
   </h1>

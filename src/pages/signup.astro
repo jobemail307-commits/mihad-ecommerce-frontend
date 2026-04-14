@@ -6,9 +6,11 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-    <Header title="Sign Up"/>
-    <SignupForm />
-    <div class=" wrapper py-3">
-         Already have an account? <Button variant={"link"}><a href="/login">Log in.</a></Button>
-    </div>
+  <Header title="Sign Up" textWrap={false} />
+  <SignupForm />
+  <div class="wrapper py-3">
+    Already have an account? <Button variant={"link"}
+      ><a href="/login">Log in.</a></Button
+    >
+  </div>
 </Layout>
