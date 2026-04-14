@@ -1,7 +1,14 @@
 ---
+import Header from "@/components/Header.astro";
+import SignupForm from "@/components/SignupForm.astro";
+import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <div></div>
+    <Header title="Sign Up"/>
+    <SignupForm />
+    <div class=" wrapper pt-3">
+         Already have an account? <Button variant={"link"}><a href="/login">Log in.</a></Button>
+    </div>
 </Layout>

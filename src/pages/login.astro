@@ -1,5 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import LoginForm from "@/components/LoginForm.astro"
+import Header from "@/components/Header.astro"
+import {Button} from "@/components/ui/button"
 ---
 
-<Layout />
+<Layout>
+    <Header title="Log in"/>
+    <LoginForm />
+    <div class=" wrapper pt-3">
+         Don't have an account? <Button variant={"link"}><a href="/signup">Create account.</a></Button>
+    </div>
+</Layout>
