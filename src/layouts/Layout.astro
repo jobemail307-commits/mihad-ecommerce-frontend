@@ -2,6 +2,13 @@
 import { Font } from "astro:assets";
 import "@/styles/global.css";
 import Navbar from "@/components/Navbar.astro";
+
+interface Props {
+  showNavbar?: boolean;
+}
+
+const { showNavbar = true } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -18,7 +25,7 @@ import Navbar from "@/components/Navbar.astro";
     <Font cssVariable="--font-mono" />
   </head>
   <body>
-    <Navbar />
+    {showNavbar && <Navbar />}
     <slot />
   </body>
 </html>
