@@ -1,269 +1,158 @@
 ---
+import { Field, FieldGroup } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
+import { ChevronLeft } from "@lucide/astro";
 ---
 
 <Layout showNavbar={false}>
-<div class="container" id="container">
+  <div class="grid justify-center items-center h-full bg-primary">
+    <Button
+      client:load
+      variant="secondary"
+      size={"icon-sm"}
+      className="top-4 left-4 fixed z-10 rounded-4xl"
+      id="backButton"
+    >
+      <ChevronLeft />
+    </Button>
+    <div
+      class="relative w-225 h-125 flex overflow-hidden rounded-2xl container bg-background text-foreground"
+      id="container"
+    >
+      <!-- LEFT SIDE -->
+      <div class="flex relative w-full left">
+        <!-- LOGIN -->
+        <div class="w-1/2 h-full flex flex-col justify-center p-15">
+          <h2 class="font-heading font-semibold pb-8">Login</h2>
 
-  <!-- LEFT SIDE -->
-  <div class="left">
+          <form>
+            <FieldGroup>
+              <Field>
+                <Input type="text" placeholder="Username" />
+              </Field>
 
-    <!-- LOGIN -->
-    <div class="login">
-      <h2>Login</h2>
+              <Field>
+                <Input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Password"
+                />
+              </Field>
+              <Button type="submit">Login</Button>
+            </FieldGroup>
+          </form>
 
-      <div class="input-box">
-        <input type="text" placeholder="Username">
-        <span class="icon">👤</span>
+          <p>
+            Don't have an account?
+            <Button id="loginButton" variant={"link"}>Sign up</Button>
+          </p>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="w-1/2 h-full flex flex-col justify-center p-15">
+          <h2 class="font-heading font-semibold pb-8">Register</h2>
+
+          <form>
+            <FieldGroup>
+              <Field>
+                <Input type="text" placeholder="Full Name" />
+              </Field>
+
+              <Field>
+                <Input type="email" placeholder="Email" />
+              </Field>
+
+              <Field>
+                <Input
+                  type="password"
+                  id="registerPassword"
+                  placeholder="Password"
+                />
+              </Field>
+
+              <Button type="submit">Register</Button>
+            </FieldGroup>
+          </form>
+
+          <p>
+            Already have an account?
+            <Button variant={"link"} id="registerButton">Login</Button>
+          </p>
+        </div>
       </div>
 
-      <div class="input-box">
-        <input type="password" id="loginPassword" placeholder="Password">
-        <span class="icon" onclick="togglePassword('loginPassword', this)">👁</span>
+      <!-- RIGHT SIDE -->
+      <div
+        class="right bg-secondary text-secondary-foreground grid gap-4 rounded-2xl transition-all ease-in-out duration-600"
+        id="rightSide"
+      >
+        <h1
+          id="rightTitle"
+          class="font-heading font-semibold text-4xl tracking-tight leading-tight"
+        >
+          WELCOME<br />BACK!
+        </h1>
+        <p id="rightText">
+          We are happy to have you with us again. If you need anything, we are
+          here to help.
+        </p>
       </div>
-
-      <button>Login</button>
-
-      <p>
-        Don't have an account?
-        <a onclick="showRegister()">Sign up</a>
-      </p>
     </div>
-
-    <!-- REGISTER -->
-    <div class="register">
-      <h2>Register</h2>
-
-      <div class="input-box">
-        <input type="text" placeholder="Full Name">
-        <span class="icon">👤</span>
-      </div>
-
-      <div class="input-box">
-        <input type="email" placeholder="Email">
-        <span class="icon">📧</span>
-      </div>
-
-      <div class="input-box">
-        <input type="password" id="registerPassword" placeholder="Password">
-        <span class="icon" onclick="togglePassword('registerPassword', this)">👁</span>
-      </div>
-
-      <button>Register</button>
-
-      <p>
-        Already have an account?
-        <a onclick="showLogin()">Login</a>
-      </p>
-    </div>
-
   </div>
-
-  <!-- RIGHT SIDE -->
-  <div class="right" id="rightSide">
-      <h1 id="rightTitle">WELCOME<br>BACK!</h1>
-      <p id="rightText">
-       We are happy to have you with us again.
-       If you need anything, we are here to help.
-     </p>
-   </div>
-
-</div>
 </Layout>
 
 <script is:inline>
-function showRegister(){
-  document.getElementById("container")?.classList.add("active");
-  
-  // تغيير الكلام في الجزء المتحرك
-  document.getElementById("rightTitle").innerHTML = "WELCOME!";
-  document.getElementById("rightText").textContent = "We're delighted to have you here.";
-}
+  document
+    .getElementById("registerButton")
+    .addEventListener("click", showLogin);
+  document
+    .getElementById("loginButton")
+    .addEventListener("click", showRegister);
+  document
+    .getElementById("backButton")
+    .addEventListener("click", () => window.history.back());
 
-function showLogin(){
-  document.getElementById("container").classList.remove("active");
-  
-  // إرجاع الكلام الأصلي
-  document.getElementById("rightTitle").innerHTML = "WELCOME<br>BACK!";
-  document.getElementById("rightText").textContent = "We are happy to have you with us again.";
-}
+  function showRegister() {
+    document.getElementById("container").classList.add("active");
 
-function togglePassword(id, element){
-  const input = document.getElementById(id);
-  if(input.type === "password"){
-    input.type = "text";
-    element.textContent = "🙈";
-  } else {
-    input.type = "password";
-    element.textContent = "👁";
+    // تغيير الكلام في الجزء المتحرك
+    document.getElementById("rightTitle").innerHTML = "WELCOME!";
+    document.getElementById("rightText").textContent =
+      "We're delighted to have you here.";
   }
-}
+
+  function showLogin() {
+    document.getElementById("container").classList.remove("active");
+
+    // إرجاع الكلام الأصلي
+    document.getElementById("rightTitle").innerHTML = "WELCOME<br>BACK!";
+    document.getElementById("rightText").textContent =
+      "We are happy to have you with us again.";
+  }
 </script>
 
 <style is:global>
-    *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#111;
-}
-
-/* خلفية مائلة */
-body::before{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg,#111 50%, #f26a2e 50%);
-  z-index:-1;
-}
-
-/* الحاوية الأساسية */
-.container {
-    position: relative;
-    width: 900px;
-    height: 500px;
-    background: #111;
-    overflow: hidden; /* مهم جداً عشان أي حاجة تطلع بره تختفي */
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    display: flex;
-}
-
-/* ===== LEFT SIDE ===== */
-
-
-.left {
-    width: 100%; /* خليه ياخد المساحة كاملة */
-    display: flex;
-    position: relative;
-}
-
-.login, .register {
-    width: 50%;
-    height: 100%;
-    padding: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 0.6s ease-in-out;
-}
-
-h2{
-  color: #fff;
-  margin-bottom:30px;
-  font-weight:500;
-}
-
-.input-box{
-  position:relative;
-  margin-bottom:25px;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 12px 40px 12px 0;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #666;
-    color: #fff; /* الكتابة باللون الأبيض */
-    outline: none;
-}
-
-.input-box .icon {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-}
-
-button{
-  margin-top:20px;
-  padding:12px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(to right,#ff8a00,#ff3d00);
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
-  transition: 0.3s;
-}
-
-button:hover{
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgb(181, 176, 176);
-}
-
-.left p{
-  color:#ccc;
-  margin-top:20px;
-  font-size:14px;
-}
-
-.left a{
-  color:#ff8a00;
-  text-decoration:none;
-  cursor:pointer;
-}
-
-/* ===== RIGHT SIDE ===== */
-
-/* الجزء المتحرك (البرتقالي) */
-.right {
+  .right {
     position: absolute;
     right: 0;
     width: 50%;
     height: 100%;
-    background: #f26a2e;
-    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 60px;
-    z-index: 10; /* عشان يغطي الفورم */
-    transition: 0.6s ease-in-out;
-}
+    z-index: 10;
+  }
+  .container.active .right {
+    right: 50%;
+  }
 
-.right h1{
-  font-size:36px;
-  margin-bottom:20px;
-}
-
-.right p{
-  line-height:1.6;
-}
-
-/* ===== SWITCH EFFECT ===== */
-
-/* تحريك الكفر البرتقالي لليسار */
-.container.active .right {
-    right: 50%; /* يتحرك لنص الحاوية من الناحية التانية */
-    border-radius: 0 50px 50px 0; /* اختيار اختياري لشكل جمالي */
-}
-
-/* تبديل أماكن الفورم بذكاء */
-.container.active .login {
-    transform: translateX(100%); /* يزق اللوجن لليمين تحت الكفر */
-    opacity: 0;
-}
-
-.container.active .register {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.register {
+  .register {
     position: absolute;
-    left: 50%; /* تبدأ من اليمين وهي مستخبية */
+    left: 50%;
     opacity: 0;
     width: 50%;
-}
+  }
 </style>
