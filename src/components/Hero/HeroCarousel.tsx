@@ -76,7 +76,7 @@ function HeroCarousel({
                     src={image.imageResult.src}
                     alt={image.alt}
                     {...image.imageResult.attributes}
-                    className="h-[80svh] object-cover h-full w-full"
+                    className="object-cover w-full h-full"
                   />
                 </div>
             </CarouselItem>
