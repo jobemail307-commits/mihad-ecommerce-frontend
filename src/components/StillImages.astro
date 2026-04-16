@@ -1,54 +1,74 @@
 ---
 import StillImageSection from "@/components/StillImages/StillImageSection.astro";
 
-import HeroImage from "@/assets/hero_main.jpeg";
-import Number2 from "@/assets/2.jpg"
-import Number3 from "@/assets/3.jpg"
-import Number4 from "@/assets/4.jpg"
-import Number6 from "@/assets/6.jpg"
-
+import Black from "@/assets/stillImages/black.jpg";
+import BlueSuit from "@/assets/stillImages/blueSuit.jpg";
+import BrownSuit from "@/assets/stillImages/brownSuit.jpg";
+import CrimsonSuit from "@/assets/stillImages/crimsonSuit.jpg";
+import Red from "@/assets/stillImages/red.jpeg";
+import YellowSuit from "@/assets/stillImages/yellowSuit.jpeg";
 
 const sections = [
   {
     image: {
-      src: Number2,
-      alt: "Girl suit, dark blue"
+      src: Red,
+      alt: "Girl suit, dark red",
     },
     collection: {
       name: "Shopping cart",
-      href: "/cart"
-    }
+      href: "/cart",
+    },
   },
   {
     image: {
-      src: Number3,
-      alt: "Girl suit, crimson red"
+      src: Black,
+      alt: "Girl suit, black",
     },
     collection: {
       name: "Shopping cart",
-      href: "/cart"
-    }
+      href: "/cart",
+    },
   },
   {
     image: {
-      src: Number4,
-      alt: "Girl suit, brown"
+      src: BlueSuit,
+      alt: "Girl suit, dark blue",
     },
     collection: {
       name: "Shopping cart",
-      href: "/cart"
-    }
+      href: "/cart",
+    },
   },
   {
     image: {
-      src: Number6,
-      alt: "Girl suit, black"
+      src: CrimsonSuit,
+      alt: "Girl suit, crimson red",
     },
     collection: {
       name: "Shopping cart",
-      href: "/cart"
-    }
-  }
+      href: "/cart",
+    },
+  },
+  {
+    image: {
+      src: BrownSuit,
+      alt: "Girl suit, brown",
+    },
+    collection: {
+      name: "Shopping cart",
+      href: "/cart",
+    },
+  },
+  {
+    image: {
+      src: YellowSuit,
+      alt: "Girl suit, yellow",
+    },
+    collection: {
+      name: "Shopping cart",
+      href: "/cart",
+    },
+  },
 ];
 ---
 
