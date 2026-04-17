@@ -72,13 +72,13 @@ function HeroCarousel({
                     </div>
                   </div>
                 </div>
-                  <img
-                    src={image.imageResult.src}
-                    alt={image.alt}
-                    {...image.imageResult.attributes}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
+                <img
+                  src={image.imageResult.src}
+                  alt={image.alt}
+                  {...image.imageResult.attributes}
+                  className="h-full w-full object-cover object-[50%_20%]"
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
