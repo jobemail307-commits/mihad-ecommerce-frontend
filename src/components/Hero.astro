@@ -1,9 +1,14 @@
 ---
 import HeroCarousel from "@/components/Hero/HeroCarousel";
 import { getImage } from "astro:assets";
-
-import MainImage from "@/assets/hero_main.jpeg";
 import type { GetImageResult } from "astro";
+
+import BlueRobe from "@/assets/heroImages/blueRobe.jpeg";
+import DesertRed from "@/assets/heroImages/desertRed.jpeg";
+import DesertWhite from "@/assets/heroImages/desertWhite.jpeg";
+import InteriorOlivey from "@/assets/heroImages/interiorOlivey.jpeg";
+import SandBricksRed from "@/assets/heroImages/sandBricksRed.jpeg";
+import Sunshine from "@/assets/heroImages/sunshine.jpeg";
 
 interface Panel {
   image: {
@@ -19,32 +24,62 @@ interface Panel {
 const panels: Panel[] = [
   {
     image: {
-      src: MainImage,
-      alt: "Main",
+      src: BlueRobe,
+      alt: "Blue robe",
     },
     link: {
-      href: "/",
-      name: "Home",
+      name: "Stuff",
+      href: "/cart",
     },
   },
   {
     image: {
-      src: MainImage,
-      alt: "Main",
+      src: DesertRed,
+      alt: "Red dress",
     },
     link: {
-      href: "/",
-      name: "Home",
+      name: "Stuff",
+      href: "/cart",
     },
   },
   {
     image: {
-      src: MainImage,
-      alt: "Main",
+      src: DesertWhite,
+      alt: "White dress",
     },
     link: {
-      href: "/",
-      name: "Home",
+      name: "Stuff",
+      href: "/cart",
+    },
+  },
+  {
+    image: {
+      src: InteriorOlivey,
+      alt: "Olive-colored dress",
+    },
+    link: {
+      name: "Stuff",
+      href: "/cart",
+    },
+  },
+  {
+    image: {
+      src: SandBricksRed,
+      alt: "Red dress",
+    },
+    link: {
+      name: "Stuff",
+      href: "/cart",
+    },
+  },
+  {
+    image: {
+      src: Sunshine,
+      alt: "Pink dress",
+    },
+    link: {
+      name: "Stuff",
+      href: "/cart",
     },
   },
 ];
