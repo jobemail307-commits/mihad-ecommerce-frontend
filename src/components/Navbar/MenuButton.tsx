@@ -51,12 +51,16 @@ function MenuButton({ categories }: { categories: string[] }) {
           <Separator />
           <Accordion>
             <AccordionItem>
-              <AccordionTrigger>Categories</AccordionTrigger>
+              <AccordionTrigger className={"text-lg"}>
+                Categories
+              </AccordionTrigger>
               <AccordionContent>
                 <ul className="flex flex-col gap-3 px-5">
                   {categories.map((categorie, index) => (
                     <li key={index}>
-                      <a href={"/products/"}>{categorie}</a>
+                      <a href={"/products/"} className="text-base">
+                        {categorie}
+                      </a>
                     </li>
                   ))}
                 </ul>
