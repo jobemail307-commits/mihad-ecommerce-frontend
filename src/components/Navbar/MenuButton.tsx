@@ -11,7 +11,7 @@ import Logo from "@/assets/logo.jpg";
 function MenuButton() {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger className="cursor-pointer">
         <Menu />
       </SheetTrigger>
       <SheetContent
