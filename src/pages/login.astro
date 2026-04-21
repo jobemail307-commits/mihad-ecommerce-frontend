@@ -1,16 +1,26 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LoginForm from "@/components/LoginForm.astro";
-import Header from "@/components/Header.astro";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 ---
 
 <Layout>
-  <Header title="Log in" textWrap={false} />
-  <LoginForm />
-  <div class="wrapper py-3">
-    Don't have an account? <Button variant={"link"}
-      ><a href="/signup">Create account.</a></Button
-    >
+  <div class="h-svh grid items-center pt-30 sm:px-15 md:px-40 wrapper">
+    <Card>
+      <CardHeader>
+        <div class="w-full wrapper">
+          <h1 class="font-heading text-2xl">Log in</h1>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <LoginForm />
+        <div class="wrapper py-3">
+          Don't have an account? <Button variant={"link"}
+            ><a href="/signup">Create account.</a></Button
+          >
+        </div>
+      </CardContent>
+    </Card>
   </div>
 </Layout>
