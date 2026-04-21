@@ -58,7 +58,7 @@ function MenuButton({ categories }: { categories: string[] }) {
                 <ul className="flex flex-col gap-3 px-5">
                   {categories.map((categorie, index) => (
                     <li key={index}>
-                      <a href={"/products/"} className="text-base">
+                      <a href={"/products/" + index} className="text-base">
                         {categorie}
                       </a>
                     </li>
