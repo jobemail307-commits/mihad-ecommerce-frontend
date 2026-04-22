@@ -7,7 +7,9 @@ import { ChevronLeft } from "@lucide/astro";
 ---
 
 <Layout showNavbar={false}>
-  <div class="grid justify-center items-center h-full bg-primary">
+  <div
+    class="grid justify-center items-center h-full bg-primary w-full wrapper"
+  >
     <Button
       client:load
       variant="secondary"
@@ -18,7 +20,7 @@ import { ChevronLeft } from "@lucide/astro";
       <ChevronLeft />
     </Button>
     <div
-      class="relative w-225 h-125 flex overflow-hidden rounded-2xl container bg-background text-foreground"
+      class="relative w-225 h-125 flex overflow-hidden rounded-2xl bg-background text-foreground"
       id="container"
     >
       <!-- LEFT SIDE -->
@@ -133,7 +135,7 @@ import { ChevronLeft } from "@lucide/astro";
   }
 </script>
 
-<style is:global>
+<style>
   .right {
     position: absolute;
     right: 0;
@@ -145,14 +147,7 @@ import { ChevronLeft } from "@lucide/astro";
     padding: 60px;
     z-index: 10;
   }
-  .container.active .right {
+  #container.active .right {
     right: 50%;
-  }
-
-  .register {
-    position: absolute;
-    left: 50%;
-    opacity: 0;
-    width: 50%;
   }
 </style>

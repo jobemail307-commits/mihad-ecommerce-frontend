@@ -1,0 +1,21 @@
+---
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCategories } from "@/lib/db";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+  const categories = await getCategories();
+
+  const result = categories.map((_, index) => ({
+    params: { categorieId: String(index) },
+  }));
+  return result;
+}) satisfies GetStaticPaths;
+
+const { categorieId } = Astro.params;
+---
+
+<Layout>
+  <Header title={"Categorie No." + categorieId} />
+</Layout>

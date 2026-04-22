@@ -7,11 +7,18 @@ import {
 } from "@/components/ui/sheet";
 import { links } from "@/lib/constants";
 import Logo from "@/assets/logo.jpg";
+import { Separator } from "@/components/ui/separator";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-function MenuButton() {
+function MenuButton({ categories }: { categories: string[] }) {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger className="cursor-pointer">
         <Menu />
       </SheetTrigger>
       <SheetContent
@@ -33,13 +40,34 @@ function MenuButton() {
             </a>
           </div>
         </SheetHeader>
-        <ul className="flex flex-col gap-3 px-10 py-8 text-lg">
-          {links.map((link, index) => (
-            <li key={index}>
-              <a href={link.href}>{link.name}</a>
-            </li>
-          ))}
-        </ul>
+        <div className="grid gap-3 px-10 py-8 text-lg">
+          <ul className="flex flex-col gap-3">
+            {links.map((link, index) => (
+              <li key={index}>
+                <a href={link.href}>{link.name}</a>
+              </li>
+            ))}
+          </ul>
+          <Separator />
+          <Accordion>
+            <AccordionItem>
+              <AccordionTrigger className={"text-lg"}>
+                Categories
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className="flex flex-col gap-3 px-5">
+                  {categories.map((categorie, index) => (
+                    <li key={index}>
+                      <a href={"/products/" + index} className="text-base">
+                        {categorie}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
       </SheetContent>
     </Sheet>
   );

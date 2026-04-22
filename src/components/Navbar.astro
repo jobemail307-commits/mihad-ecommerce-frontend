@@ -4,6 +4,9 @@ import MenuButton from "@/components/Navbar/MenuButton";
 import Wrapper from "@/components/Navbar/NavbarWrapper";
 import { links } from "@/lib/constants";
 import Logo from "@/components/Logo.astro";
+import { getCategories } from "@/lib/db";
+
+const categories = await getCategories();
 ---
 
 <Wrapper client:load>
@@ -12,7 +15,7 @@ import Logo from "@/components/Logo.astro";
   >
     <div class="flex items-center gap-4">
       <div class="grid items-center">
-        <MenuButton client:load />
+        <MenuButton client:load categories={categories} />
       </div>
       <ul class="hidden lg:flex gap-3 text-sm items-center">
         {
